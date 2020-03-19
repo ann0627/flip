@@ -1,0 +1,76 @@
+// Breakpoints
+@mixin bp-xs {
+  @media (min-width: map-get($breakpoints, 'xs')) {
+    @content;
+  }
+}
+
+@mixin bp-sm {
+  @media (min-width: map-get($breakpoints, 'sm')) {
+    @content;
+  }
+}
+
+@mixin bp-md {
+  @media (min-width: map-get($breakpoints, 'md')) {
+    @content;
+  }
+}
+
+@mixin bp-lg {
+  @media (min-width: map-get($breakpoints, 'lg')) {
+    @content;
+  }
+}
+
+@mixin bp-xl {
+  @media (min-width: map-get($breakpoints, 'xl')) {
+    @content;
+  }
+}
+
+@mixin bp-xmax {
+  @media (min-width: map-get($breakpoints, 'xmax')) {
+    @content;
+  }
+}
+
+@mixin bp-fullmax {
+  @media (min-width: map-get($breakpoints, 'fullmax')) {
+    @content;
+  }
+}
+
+@mixin absPos($y, $x: $y) {
+  position: absolute;
+  top: $y;
+  left: $x;
+  transform: translate($x * -1, $y * -1);
+}
+
+// triangle
+@mixin triangle($size, $color, $direction, $media: 'pc') {
+  $half: $size / 2;
+
+  @if $direction == top {
+    border-color: $color transparent transparent transparent;
+    border-width: 0 $half $size $half;
+  } @else if $direction == right {
+    border-color: transparent $color transparent transparent;
+    border-width: $half $size $half 0;
+  } @else if $direction == bottom {
+    border-color: transparent transparent $color transparent;
+    border-width: $size $half 0 $half;
+  } @else if $direction == left {
+    border-color: transparent transparent transparent $color;
+    border-width: $half 0 $half $size;
+  } @else {
+    @error "Unknown direction #{$direction}.";
+  }
+
+  @if $media == mb {
+    margin-#{$direction}: 5px;
+  } @else {
+    margin-#{$direction}: 10px;
+  }
+}

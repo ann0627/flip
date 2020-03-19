@@ -1,0 +1,384 @@
+@import 'lib/reset';
+@import 'lib/variables';
+@import 'lib/placeholders';
+@import 'lib/mixin';
+@import 'lib/function';
+@import 'lib/layout';
+@import 'lib/components';
+@import 'lib/default';
+
+#app {
+    padding-bottom: 0;
+}
+
+.kv {
+    &_title {
+        margin-bottom: 10px;
+    }
+
+    &_info {
+        width: 186px;
+        @include bp-md {
+            width: auto;
+        }
+    }
+
+    &_scroll {
+        width: 37px;
+        @include bp-md {
+            width: 60px;
+        }
+    }
+
+    &_polygon {
+        max-width: percentage(421/186);
+        width: percentage(421/186);
+        @include bp-md {
+            max-width: percentage(634/348);
+            width: percentage(634/348);
+        }
+    }
+}
+
+.psychol {
+    color: $pink;
+    &_step {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        min-height: 100vh;
+        height: 100%;
+        z-index: -1000;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 1s;
+        @extend %flexCenter;
+
+        &.step1 {
+            background-image: url(images/psychol-kv-mb.png);
+            @extend %bgCenter;
+            @include bp-md {
+                background-image: url(images/psychol-kv.png);
+            }
+        }
+
+        &.step2 {
+            @extend %bgDotStyle;
+            .psychol_inner {
+                padding: 40px 18px;
+                margin: 0 15px;
+
+                @extend %backFilter;
+                @include bp-md {
+                    padding: 80px 140px;
+                    max-width: 764px;
+                }
+            }
+        }
+
+        &.step3 {
+            background: $pinkLight;
+            padding: 74px 0 10px;
+        }
+
+        &.step4 {
+            align-items: center;
+            @extend %bgLineStyle;
+            padding: 70px 0 100px;
+        }
+
+        &.active {
+            position: relative;
+            z-index: 2;
+            opacity: 1;
+            pointer-events: all;
+        }
+    }
+
+    // step2
+    &_icon {
+        width: 40px;
+        margin-bottom: 18px;
+        @include bp-md {
+            margin-bottom: 0;
+            margin-right: 10px;
+        }
+    }
+
+    &_question {
+        text-align: center;
+        margin-bottom: 40px;
+        max-width: 312px;
+        @include bp-md {
+            width: auto;
+            margin-bottom: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: auto;
+        }
+    }
+
+    &_game {
+        text-align: center;
+        .btn {
+            margin-bottom: 15px;
+            @include bp-md {
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+    select.input {
+        padding-right: 55px;
+    }
+}
+
+// step3
+.step3 {
+    .psychol_inner {
+        position: relative;
+        max-width: 1224px;
+        width: percentage(1080/1124);
+        height: 100%;
+        @extend %flexCenter;
+        justify-content: space-around;
+        flex-direction: column;
+        @include bp-md {
+            flex-direction: row;
+            justify-content: center;
+        }
+    }
+
+    .psychol_polygon {
+        @include absPos(50%, 50%);
+        z-index: 1;
+        width: percentage(357/275);
+        @include bp-md {
+            width: percentage(540/361);
+        }
+    }
+
+    .result {
+        &_info {
+            order: 1;
+            width: 275px;
+            position: relative;
+            @include bp-md {
+                order: 2;
+                // position: absolute;
+                // top: 50%;
+                // right: 40px;
+                // transform: translateY(-50%);
+                width: auto;
+                margin-left: -65px;
+                left: -4%;
+            }
+            @include bp-xl {
+                left: 0;
+            }
+        }
+
+        &_cover {
+            order: 2;
+            margin-top: 30px;
+            width: 88%;
+            @include bp-md {
+                max-width: 75vh;
+                width: percentage(810/1171);
+                margin-top: 0px;
+            }
+        }
+
+        &_content {
+            position: relative;
+            z-index: 2;
+        }
+
+        &_product {
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            @include bp-md {
+                font-size: 36px;
+                margin-bottom: 14px;
+            }
+        }
+
+        &_txt {
+            text-align: center;
+            margin-bottom: 15px;
+            @include bp-md {
+                font-size: 21px;
+                margin-bottom: 30px;
+            }
+        }
+    }
+}
+
+// form
+.demand {
+    &_title {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    &_content {
+        max-width: 776px;
+        margin: 0 auto 35px;
+        padding: 0 12px;
+        @include bp-md {
+            margin: 0 auto 4rem;
+        }
+    }
+
+    &_txt {
+        text-align: center;
+        font-size: 16px;
+        letter-spacing: 2px;
+        @include bp-md {
+            font-size: 20px;
+        }
+    }
+
+    &_note {
+        font-size: 14px;
+        @include bp-md {
+            display: block;
+        }
+    }
+}
+
+.form {
+    display: flex;
+    align-self: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 912px;
+
+    &_wrap {
+        flex: 1 0 100%;
+        padding: 0 30px;
+        @include bp-md {
+            flex: 1 0 50%;
+            padding: 0 35px;
+        }
+        .form_grp {
+            @extend %flexCenter;
+            margin-bottom: 2rem;
+        }
+
+        .form_ctrl {
+            flex: auto;
+        }
+    }
+
+    > .form_grp {
+        width: 100%;
+    }
+
+    &_label {
+        font-size: 18px;
+        font-weight: bold;
+        flex: 0 0 5.5rem;
+        @include bp-md {
+            font-size: 24px;
+            flex: 0 0 7rem;
+        }
+    }
+
+    &_link {
+        font-weight: bold;
+    }
+
+    &_agreement {
+        max-width: 810px;
+        margin-top: 2px;
+        margin-bottom: 26px;
+        padding: 0 30px;
+        @include bp-md {
+            margin-top: 25px;
+            margin-bottom: 2rem;
+        }
+
+        .form_ctrl {
+            display: flex;
+            margin-bottom: 8px;
+            font-size: 14px;
+            @include bp-md {
+                font-size: 18px;
+            }
+        }
+    }
+
+    &_submit {
+        text-align: center;
+    }
+
+    .store_address {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding-left: 20px;
+        font-size: 14px;
+        @include bp-md {
+            font-size: 16px;
+        }
+
+        .map_icon {
+            padding: 3px 3px 0;
+            @include bp-md {
+                padding-top: 4px;
+            }
+        }
+    }
+}
+
+.option {
+    margin-right: 5px;
+    &_input {
+        display: none;
+
+        &:checked ~ .option_obj {
+            &:after {
+                width: 9px;
+                height: 9px;
+                background: $pink;
+            }
+        }
+    }
+
+    &_obj {
+        display: inline-block;
+        position: relative;
+        width: 18px;
+        height: 18px;
+        border-radius: 19px;
+        border: 1px solid $pink;
+        background: $white;
+        margin-top: 1px;
+        @include bp-md {
+            margin-top: 5px;
+        }
+
+        &:after {
+            @extend %void;
+            width: 100%;
+            height: 100%;
+            @include absPos(50%);
+            border-radius: 50%;
+            background: $white;
+            transition: 0.3s ease-out;
+        }
+    }
+}
+
+.footer {
+    position: fixed;
+    z-index: 3;
+}
+
+@import 'animation';
+@import 'hack';

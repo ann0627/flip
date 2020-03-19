@@ -1,0 +1,99 @@
+// background
+%bgCenter {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+// cover embed
+%embed {
+    display: block;
+    position: relative;
+    width: 100%;
+}
+
+// triangle same setting
+%triangle {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+}
+
+%clean {
+    &:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+}
+
+%center-xy {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+%center-x {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+%center-y {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+%flexCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+%void {
+    content: '';
+    display: block;
+    position: relative;
+}
+
+%styleDidotItalic {
+    font-family: Didot, 'Didot LT STD', 'Times New Roman', serif;
+    font-style: italic;
+}
+
+%styleDidot {
+    font-family: Didot, 'Didot LT STD', 'Times New Roman', serif;
+}
+
+// bg style
+%bgLineStyle {
+    background-position: center;
+    background-size: auto;
+    background-repeat: repeat;
+    background-image: url(images/bg-line.png);
+}
+
+%bgDotStyle {
+    background: url(images/bg-dot.png);
+    animation: gameBgAnimate 20s infinite linear;
+}
+
+@keyframes gameBgAnimate {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: -933px 1125px;
+    }
+}
+
+// backdrop-filter
+%backFilter {
+    //   -webkit-backdrop-filter: saturate(180%) blur(20px);
+    //   backdrop-filter: saturate(180%) blur(20px);
+    background: rgba(255, 255, 255, 0.7);
+}

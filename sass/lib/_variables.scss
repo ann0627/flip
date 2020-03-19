@@ -1,0 +1,67 @@
+// font-family
+$font: Microsoft JhengHei, -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+    'Cantarell', 'Fira Sans', 'Droid Sans', 'PingFang TC', 'Hiragino Sans CNS', 'Heiti TC', '儷黑 Pro', 'LiHei Pro',
+    'Microsoft JhengHei', '微軟正黑體', 'Microsoft YaHei New', 'Microsoft YaHei', '微软雅黑', '文泉驛正黑',
+    'WenQuanYi Zen Hei', Meiryo, 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol';
+
+$font-family-ui: 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans' !default;
+$font-family-serif-tc: 'Noto Serif TC', '微軟正黑體', serif;
+$font-family-serif-jp: 'Noto Serif JP', '微軟正黑體', serif;
+$font-family-number: 'GFS Didot', serif;
+
+// font-size
+$fz-sm-title: 26px;
+$fz-title: 44px;
+
+$fz-content: 18px;
+$fz-menu: 24px;
+
+// font-colorvcx
+$white: white;
+$whiteArrow: #ffedf7;
+$grey: #aaaaaa;
+$black: black;
+
+$text-color: #717171;
+
+$pinkDark: #e72a50;
+$pink: #ef426f;
+$pinkLight: #f2c6d0;
+$pinkArrow: #ff6895;
+
+$purpleDark: #834aaf;
+$purple: #a169c6;
+$purpleArrow: #c78fec;
+
+$brown: #6b4e4e;
+
+$orange: #df8b6d;
+
+// BREAKPOINTS
+$screen-xs: 375 !default;
+$screen-sm: 576 !default;
+$screen-md: 768 !default;
+$screen-lg: 992 !default;
+$screen-xl: 1200 !default;
+$screen-xmax: 1440 !default;
+$screen-fullmax: 1920 !default;
+
+$breakpoints: (
+    'xs': $screen-xs * 1px,
+    'sm': $screen-sm * 1px,
+    'md': $screen-md * 1px,
+    'lg': $screen-lg * 1px,
+    'xl': $screen-xl * 1px,
+    'xmax': $screen-xmax * 1px,
+    'fullmax': $screen-fullmax * 1px,
+) !default;
+
+$smW: 375;
+$smH: 667;
+
+$xlW: 1920;
+$xlH: 1080;
+
+$easeOutCubic: cubic-bezier(0.215, 0.61, 0.355, 1);
+$easeInOutCirc: cubic-bezier(0.785, 0.135, 0.15, 0.86);

@@ -1,0 +1,7 @@
+@function per($w, $maxW) {
+  @return percentage($w/$maxW);
+}
+
+@function setVh($w, $maxW) {
+  @return percentage($w/$maxW);
+}

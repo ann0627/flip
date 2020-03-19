@@ -1,0 +1,213 @@
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    @extend %flexCenter;
+    z-index: -1;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.5s;
+    padding: 0 20px;
+
+    &.active {
+        z-index: 1000;
+        pointer-events: all;
+        opacity: 1;
+    }
+
+    &_inner {
+        position: relative;
+        z-index: 2;
+        background: $white;
+        border-radius: 10px;
+        width: 470px;
+        padding: 50px 30px;
+        background: $brown;
+        @include bp-md {
+            padding: 68px;
+        }
+    }
+
+    &_content {
+        text-align: center;
+        font-size: 22px;
+        color: $brown;
+    }
+
+    &_title {
+        margin-bottom: 12px;
+    }
+
+    &_close {
+        position: absolute;
+        z-index: 1;
+        top: 9px;
+        right: 9px;
+        width: 33px;
+        @include bp-md {
+            width: auto;
+            top: 6px;
+            right: 6px;
+        }
+    }
+
+    &_overlay {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(107, 78, 78, 0.75);
+    }
+}
+
+.modal {
+    &_txt {
+        font-size: 16px;
+
+        &_li {
+            margin-bottom: 5px;
+        }
+    }
+
+    // page
+    &-exchange {
+        .modal_content {
+            margin-bottom: 35px;
+        }
+
+        .modal_ctrl {
+            @extend %flexCenter;
+        }
+
+        .btn-confirm,
+        .btn-cancel {
+            width: 92px;
+            height: 46px;
+            @extend %bgCenter;
+            color: $white;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 0 10px;
+        }
+        .btn-confirm {
+            background-image: url(../images/button-small.png);
+        }
+        .btn-cancel {
+            background-image: url(../images/button-small-cancel.png);
+        }
+    }
+
+    &-flipover {
+        .modal_title {
+            width: 140px;
+            margin: auto;
+            @include bp-md {
+                width: auto;
+            }
+        }
+    }
+
+    &-flip {
+        .modal_title {
+            margin-bottom: 2rem;
+            font-size: 36px;
+            font-weight: bold;
+            @extend %styleDidotItalic;
+            color: white;
+        }
+
+        .modal_info {
+            font-size: 16px;
+            @include bp-md {
+                font-size: 22px;
+            }
+        }
+        .flip_replay {
+            width: 187px;
+            height: 47px;
+            font-size: 18px;
+            font-weight: bold;
+            color: $brown;
+            background: $white;
+            border-radius: 5px;
+        }
+    }
+
+    &-form {
+        .modal_title {
+            margin-bottom: 20px;
+        }
+
+        .modal_txt {
+            margin-bottom: 15px;
+        }
+
+        .modal_phone {
+            font-size: 27px;
+            font-weight: 600;
+            margin: 5px 0;
+        }
+
+        .modal_note {
+            font-size: 14px;
+            color: $text-color;
+            margin-bottom: 20px;
+        }
+
+        .social {
+            font-size: 13px;
+            @extend %flexCenter;
+            text-align: center;
+            color: $text-color;
+        }
+
+        .social_link {
+            margin: 0 9px;
+            opacity: 0.9;
+            transition: all 0.7s;
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+
+    &-method,
+    &-personallaw,
+    &-privacy {
+        .modal_title {
+            margin-bottom: 20px;
+        }
+
+        .modal_inner {
+            width: 600px;
+            max-height: 450px;
+            height: 100%;
+        }
+
+        .modal_content {
+            overflow-y: scroll;
+            width: 100%;
+            height: 100%;
+        }
+
+        .modal_txt {
+            text-align: left;
+            margin-bottom: 12px;
+        }
+    }
+
+    &-personallaw {
+        .modal_inner {
+            height: auto;
+        }
+
+        .modal_note {
+            text-align: left;
+            font-size: 14px;
+        }
+    }
+}

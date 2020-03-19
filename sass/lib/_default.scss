@@ -1,0 +1,75 @@
+html,
+body {
+    height: 100%;
+    font-family: $font;
+    font-style: normal;
+    overflow-y: visible;
+
+    &.stop-scroll {
+        overflow: hidden;
+    }
+}
+
+body {
+    position: relative;
+    opacity: 0;
+    background: #fff;
+
+    &.loaded {
+        opacity: 1;
+        transition: opacity 1s ease;
+    }
+}
+
+br {
+    &.mb {
+        display: block;
+        @include bp-md {
+            display: none;
+        }
+    }
+}
+
+.swiper-wrapper {
+    height: auto;
+}
+
+// vue
+#app {
+    position: relative;
+    padding-bottom: 55px;
+    overflow-x: hidden;
+}
+
+.kv {
+    &_info {
+        position: relative;
+    }
+}
+
+[v-cloak] {
+    display: none;
+}
+
+.clearfix {
+    &:after {
+        content: ' ';
+        display: table;
+        clear: both;
+    }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+}
+
+.preload_img {
+    display: none;
+}
+
+@import '../nav';
+@import '../modal';

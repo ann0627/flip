@@ -1,0 +1,53 @@
+html {
+    //   &.edge,
+    &.ie {
+        section.recomment {
+            @include bp-md {
+                justify-content: flex-start;
+            }
+        }
+
+        .flip-start {
+            .flip_box {
+                flex: 1 0 30%;
+
+                &:nth-child(1) {
+                    padding-left: 80px;
+                }
+            }
+        }
+    }
+
+    &.ie,
+    &.edge {
+        .psychol {
+            .step2 {
+                .psychol_icon {
+                    min-width: 60px;
+                    max-width: 60px;
+                    height: 60px;
+                }
+                .psychol_icon_title {
+                    max-width: 426px;
+                    width: 100%;
+                }
+            }
+            .step4 {
+                .form {
+                    padding-bottom: 100px;
+                }
+
+                .form_wrap {
+                    @include bp-md {
+                        max-width: 50%;
+                    }
+                }
+            }
+        }
+
+        .flip-front,
+        .flip-start {
+            overflow: hidden;
+        }
+    }
+}

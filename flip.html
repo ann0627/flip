@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" itemscope itemtype="http://schema.org/WebSite" xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml">
+
+<head>
+    <link rel="stylesheet" href="css/lazy4.css">
+    <link rel="stylesheet" href="css/flip.css">
+</head>
+
+<body>
+
+    <div id="app" class="flip-start">
+        <!-- Flip Game -->
+        <div class="flip" :class="{'active': flipGame.tab == 1}">
+            <div class="flip_bg"></div>
+            <div class="flip_wrap">
+                <div class="flip_panel">
+                    <div class="flip_box">
+                        <div class="flip_box_label">TIME</div>
+                        <div class="flip_lefttime">00:{{flipGame.reciprocal}}</div>
+                    </div>
+                    <div class="flip_box">
+                        <div class="flip_box_label">SCORE</div>
+                        <div class="flip_score">{{flipGame.score}}</div>
+                    </div>
+                </div>
+                <div class="flip_list" :class="{disabled: !status.flipGame}">
+                    <div class="flip_item" :class="{active: flipGame.data[item].active}"
+                        v-for="(item, index) in flipGame.randomArr" @click="flipCard(item)">
+                        <div class="flip_front">Flip</div>
+                        <div class="flip_back"
+                            :style="{ 'background-image': 'url(images/' + flipGame.data[item].imgUrl + ')' }">
+                        </div>
+                    </div>
+                </div>
+
+                <button class="circle circle-game" @click="startFlipGame('.circle-game')" aria-label="GO!">
+                    <div class="circle_inner">
+                        <h2 class="circle_title">Start</h2>
+                    </div>
+                </button>
+
+            </div>
+        </div>
+
+
+        <div class="modal modal-flip" :class="{active: status.modalFlip}">
+            <div class="modal_inner">
+                <div class="modal_content">
+                    <h2 class="modal_title">Congratulations</h2>
+                    <div class="modal_info">
+                        <div class="flip_point">Your Score<span class="flip_point_core">{{flipGame.score}}</span></div>
+                        <button class="btn btn-bg flip_replay" aria-label="Replay" @click="resetFlipGame()"><span
+                                class="btn-txt">Replay</span></button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal_overlay"></div>
+        </div>
+    </div>
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

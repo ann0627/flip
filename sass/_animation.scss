@@ -1,0 +1,355 @@
+// settings
+$transSec: 0.7s;
+$delaySec: 0.5s;
+
+// before animation
+#kv {
+    .kv_info {
+        opacity: 0;
+    }
+
+    .scroll-down {
+        opacity: 0;
+    }
+}
+
+.arrow_item {
+    // 向下
+    .scroll-down & {
+        opacity: 0;
+        @for $i from 1 through 3 {
+            &:nth-child(#{$i}) {
+                animation: 1.2s flashLight $i * 0.6s infinite alternate linear;
+            }
+        }
+    }
+}
+
+.procedure {
+    .swiper-slide {
+        &:nth-child(1) {
+            @for $i from 1 through 2 {
+                .arrow_item:nth-child(#{$i}) {
+                    animation: 1.2s flashLight $i * 0.6s infinite alternate linear;
+                }
+            }
+        }
+
+        &:nth-child(2) {
+            @for $i from 3 through 4 {
+                .arrow_item:nth-child(#{$i - 2}) {
+                    animation: 1.2s flashLight $i * 0.6s infinite alternate linear;
+                }
+            }
+        }
+    }
+
+    &_title_icon,
+    .product_cover .embed_media {
+        opacity: 0;
+    }
+
+    &_cover {
+        animation: 1s bounceMB 2s infinite alternate linear;
+        @include bp-md {
+            animation: none;
+        }
+    }
+}
+
+.recomment {
+    &_cover {
+        opacity: 0;
+    }
+}
+
+.sidemenu {
+    &_item {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    .social {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+}
+
+.psychol {
+    .kv_info {
+        opacity: 0;
+    }
+
+    .kv_scroll_images {
+        animation: 1s bounceY 2s infinite alternate linear;
+    }
+
+    .step3 {
+        .result_cover {
+            opacity: 0;
+            transition: 0.5s opacity 0.8s;
+        }
+        .result_info {
+            opacity: 0;
+        }
+    }
+
+    .step4 {
+        .form_grp {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .form_wrap {
+            &:nth-child(1) {
+                @for $i from 1 through 3 {
+                    .form_grp:nth-child(#{$i}) {
+                        transition: 0.5s all $i * 0.3s;
+                    }
+                }
+            }
+            &:nth-child(2) {
+                @for $i from 4 through 5 {
+                    .form_grp:nth-child(#{$i - 3}) {
+                        transition: 0.5s all $i * 0.3s;
+                    }
+                }
+            }
+        }
+
+        .form > .form_grp {
+            &:nth-child(3) {
+                transition: 0.5s all 1.8s;
+            }
+            &:nth-child(4) {
+                transition: 0.5s all 2.1s;
+            }
+        }
+    }
+}
+
+.flip {
+    .kv_info {
+        opacity: 0;
+        z-index: 1;
+    }
+
+    .kv_fb_login {
+        animation: 1s bounceX 2s infinite alternate linear;
+    }
+
+    .circle-game {
+        animation: 1s bounceAbs 2s infinite alternate linear;
+    }
+
+    .flip_panel {
+        opacity: 0;
+        transition: 0.7s opacity 1.5s;
+    }
+
+    .flip_wrap {
+        opacity: 0;
+        transition: 0.7s opacity 1s;
+    }
+}
+
+// add animation
+.js-on.animated {
+    &#kv {
+        .kv_info {
+            animation: 0.5s bounceCenterX 1s ease forwards;
+            @include bp-lg {
+                animation: 0.5s bounceCenterY 1s ease forwards;
+            }
+        }
+
+        .scroll-down {
+            opacity: 1;
+        }
+    }
+
+    &.sidemenu {
+        .sidemenu_item {
+            opacity: 1;
+            transform: translateY(0px);
+            @for $i from 1 through 5 {
+                &:nth-child(#{$i}) {
+                    transition: 0.5s all $i * 0.3s;
+                }
+            }
+        }
+
+        .social {
+            opacity: 1;
+            transform: translateY(0px);
+            transition: 0.5s all 1.8s;
+        }
+    }
+
+    &.procedure_title_icon {
+        animation: 0.7s bounce $delaySec ease forwards;
+    }
+
+    .procedure &.product_cover .embed_media {
+        animation: 0.7s bounce $delaySec ease forwards;
+    }
+
+    &.recomment_cover {
+        animation: 0.7s bounce $delaySec ease forwards;
+    }
+}
+
+.psychol {
+    .step3.active {
+        .result_cover {
+            opacity: 1;
+        }
+        .result_info {
+            animation: 0.5s bounce 1.2s ease forwards;
+        }
+    }
+
+    .step4.active {
+        .form_grp {
+            opacity: 1;
+            transform: translateY(0px);
+        }
+    }
+
+    .kv_info.active {
+        animation: 0.5s bounce 2.2s ease forwards;
+    }
+}
+
+.flip {
+    .kv_info.active {
+        animation: 0.5s bounce 2.2s ease forwards;
+    }
+
+    &.active .flip_panel,
+    &.active .flip_wrap {
+        opacity: 1;
+    }
+}
+
+@keyframes bounceCenterY {
+    0% {
+        opacity: 0;
+        transform: scale(0.9) translateY(-50%);
+    }
+
+    60% {
+        opacity: 0.7;
+        transform: scale(1.05) translateY(-50%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(-50%);
+    }
+}
+
+@keyframes bounceCenterX {
+    0% {
+        opacity: 0;
+        transform: scale(0.9) translateX(-50%);
+    }
+
+    60% {
+        opacity: 0.7;
+        transform: scale(1.05) translateX(-50%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) translateX(-50%);
+    }
+}
+
+@keyframes bounce {
+    0% {
+        // opacity: 0;
+        transform: scale(0.9);
+    }
+
+    60% {
+        // opacity: 0.7;
+        transform: scale(1.05);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes bounceMB {
+    0% {
+        // opacity: 0;
+        transform: scale(0.98);
+    }
+
+    20% {
+        // opacity: 0.7;
+        transform: scale(1.02);
+    }
+
+    40% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes bounceAbs {
+    0% {
+        margin-top: 0;
+    }
+
+    30% {
+        margin-top: 3px;
+    }
+
+    60% {
+        margin-top: 0;
+    }
+}
+
+@keyframes bounceY {
+    0% {
+        transform: translateY(0);
+    }
+
+    30% {
+        transform: translateY(3px);
+    }
+
+    60% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounceX {
+    0% {
+        transform: translateX(0);
+    }
+
+    30% {
+        transform: translateX(3px);
+    }
+
+    60% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes flashLight {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+    100% {
+        opacity: 0.4;
+    }
+}
