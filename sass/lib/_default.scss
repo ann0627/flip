@@ -39,6 +39,7 @@ br {
     position: relative;
     padding-bottom: 55px;
     overflow-x: hidden;
+    height: 100%;
 }
 
 .kv {
@@ -71,5 +72,11 @@ br {
     display: none;
 }
 
-@import '../nav';
-@import '../modal';
+.pic-author {
+    position: absolute;
+    z-index: 10;
+    bottom: 10px;
+    left: 10px;
+    color: #9a9a9a;
+    font-size: 12px;
+}
